@@ -1,14 +1,36 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import  { MyMaterialModule } from './material.module';
 import { AppComponent } from './app.component';
+import { RouterModule,Routes } from '@angular/router';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoginComponent } from './login/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
+const appRoutes: Routes = [
+  { path: 'login', component: LoginComponent },
+  { path: '',
+  redirectTo: '/login',
+  pathMatch: 'full'
+},  
+];
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent,
+    
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    BrowserAnimationsModule,
+    MyMaterialModule,
+    FlexLayoutModule,
+    ReactiveFormsModule,
+    RouterModule.forRoot(
+      appRoutes,
+      { enableTracing: true } // <-- debugging purposes only
+    )
   ],
   providers: [],
   bootstrap: [AppComponent]
