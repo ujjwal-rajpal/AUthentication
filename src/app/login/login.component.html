@@ -10,63 +10,61 @@
       <div fxLayout="row" fxFlex="20"></div>
       <!-- Place other card -->
       <div fxLayout="row" fxLayoutAlign="center center" fxFlex="50">
-
-        <mat-card fxFill="60" [ngStyle]="{'border-radius':'50px'}">
+        
+        <mat-card  fxFill="60" [ngStyle]="{'border-radius':'50px'}">
           <!-- login button -->
-          <button mat-raised-button color="primary" fxFlex="1 1 100"
-            [ngStyle]=" {'text-align':'center','border-radius':'50px'}">LOGIN</button>
-          <div fxFlex="20"></div>
-          <!-- signup button -->
-          <button mat-button mat-raised-button fxFlex="1 1 100"
-            [ngStyle]=" {'text-align':'center','border-radius':'50px'}">SIGN Up</button>
+            <button mat-raised-button color="primary" fxFlex="1 1 100" [ngStyle]=" {'text-align':'center','border-radius':'50px'}" >LOGIN</button>
+            <div  fxFlex="20"></div>
+            <!-- signup button -->
+            <button mat-button mat-raised-button fxFlex="1 1 100" [ngStyle]=" {'text-align':'center','border-radius':'50px'}">SIGN Up</button>
         </mat-card>
       </div>
     </mat-card>
-
+    
     <!-- Place othe card at bottom -->
-
+    
     <mat-card [ngStyle]="{'background-color':'#f5f5f5'}">
-      <div fxLayout="column">
-        <!-- Sigle row to place facebook google button -->
+        <div fxLayout="column">
+          <!-- Sigle row to place facebook google button -->
         <div fxLayout="row">
-          <button mat-button mat-raised-button fxFlex="1 1 40"
-            [ngStyle]=" {'text-align':'center','background-color':'white'}">
-            <img
-              src="data:image/png;base64,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"
-              height="50px" width="50px">
-            Facebook</button>
+        <button mat-button mat-raised-button fxFlex="1 1 40"  [ngStyle]=" {'text-align':'center','background-color':'white'}" >
+          <img src="data:image/png;base64,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" height="50px" width="50px">
+          Facebook</button>
           <div fxFlex="1 1 20"></div>
-          <button mat-button mat-raised-button fxFlex="1 1 40"
-            [ngStyle]=" {'text-align':'center','background-color':'white'}">
-            <img src="http://pngimg.com/uploads/google/google_PNG19635.png" height="50px" width="50px">
-            Google</button>
+          <button mat-button mat-raised-button fxFlex="1 1 40"  [ngStyle]=" {'text-align':'center','background-color':'white'}" >
+              <img src="http://pngimg.com/uploads/google/google_PNG19635.png" height="50px" width="50px">
+              Google</button>
         </div>
         <!-- leave some space -->
         <div fxFlex="row" fxFlexOffset="5"></div>
         <!-- place other card for login with email and password -->
-        <mat-card>
-          <!-- some space on left -->
-          <div fxLayout="row" fxFlex="20"></div>
-          <!-- Login form -->
-          <form [formGroup]="LoginForm" (ngSubmit)="onSubmit()" fxLayout="column" fxLayoutAlign="space-around stretch"
-            fxFlex="60">
-            <!-- Email field -->
-            <mat-form-field>
-              <input matInput placeholder="Email" formControlName="Email">
-              <!-- <mat-error>email is invalid</mat-error> -->
+    <mat-card>
+      <!-- some space on left -->
+        <div fxLayout="row" fxFlex="20" class="or" >OR</div>
+        <div fxLayout="row" fxFlex="20"></div>
 
-            </mat-form-field>
-            <!-- password field -->
-            <mat-form-field>
-              <input matInput placeholder="Password" formControlName="Password">
-            </mat-form-field>
-            <!-- submit button -->
-            <button mat-raised-button color="primary" type="submit">Login</button>
-          </form>
-        </mat-card>
+      <!-- Login form -->
+      <form [formGroup]="LoginForm" (ngSubmit)="onSubmit()" fxLayout="column" fxLayoutAlign="space-around stretch" fxFlex="60">
+        <!-- Email field -->
+      <mat-form-field  >
+        <input matInput placeholder="Email" formControlName="Email">
+      <!-- <mat-error>email is invalid</mat-error> -->
 
-      </div>
+      </mat-form-field>
+      <!-- password field -->
+      <mat-form-field>
+        <input matInput placeholder="Password" formControlName="Password">
+      </mat-form-field>
+      <!-- submit button -->
+      <button mat-raised-button color="primary" type="submit">Login</button>
+      
+    </form>
+    <!-- <a  routerLink="/register" fxLayout="column" >Forget Password? </a> -->
+
     </mat-card>
-
+    
+  </div>
+    </mat-card>
+  
   </div>
 </div>
