@@ -1,0 +1,18 @@
+/* @import '~@angular/material/prebuilt-themes/indigo-pink.css'; */
+
+.or{
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    display: block;
+    height: 40px;
+    left: 50%;
+    line-height: 38px;
+    margin-left: -20px;
+    position: absolute;
+    text-align: center;
+    top: -17px;
+    width: 40px;
+    background-color: #fff;
+    font-family: 'roboto_bold';
+    padding-left: 8px;
+}

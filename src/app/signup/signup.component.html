@@ -13,12 +13,12 @@
 
         <mat-card fxFill="60" [ngStyle]="{'border-radius':'50px'}">
           <!-- login button -->
-          <button mat-raised-button color="primary" fxFlex="1 1 100"
-            [ngStyle]=" {'text-align':'center','border-radius':'50px'}">LOGIN</button>
+          <button mat-raised-button fxFlex="1 1 100" [ngStyle]=" {'text-align':'center','border-radius':'50px'}"
+            routerLink="/">LOGIN</button>
           <div fxFlex="20"></div>
           <!-- signup button -->
-          <button mat-button mat-raised-button fxFlex="1 1 100"
-            [ngStyle]=" {'text-align':'center','border-radius':'50px'}" routerLink="../signup">SIGN Up</button>
+          <button mat-button mat-raised-button color="primary" fxFlex="1 1 100"
+            [ngStyle]=" {'text-align':'center','border-radius':'50px'}">SIGN Up</button>
         </mat-card>
       </div>
     </mat-card>
@@ -46,35 +46,71 @@
         <!-- place other card for login with email and password -->
         <mat-card>
           <div fxLayout="row" fxFlex="20" class="or">OR</div>
-
           <!-- some space on left -->
 
           <div fxLayout="row" fxFlex="20"></div>
 
           <!-- Login form -->
-          <form [formGroup]="LoginForm" (ngSubmit)="onSubmit()" fxLayout="column" fxLayoutAlign="space-around stretch"
+          <form [formGroup]="SignUpForm" (ngSubmit)="onSubmit()" fxLayout="column" fxLayoutAlign="space-around stretch"
             fxFlex="60">
             <div fxLayout="row" fxFlexOffset="5"></div>
+            <!-- name form field -->
+
+            <mat-form-field appearance="outline">
+              <mat-label>Name*</mat-label>
+              <input matInput placeholder="Name" formControlName="Name">
+              <mat-error *ngIf="hasError('Name','required')">Name is required</mat-error>
+
+            </mat-form-field>
             <!-- Email field -->
             <mat-form-field appearance="outline">
-              <mat-label>Email</mat-label>
+              <mat-label>Email*</mat-label>
               <input matInput placeholder="Email" formControlName="Email">
-              <mat-error *ngIf="hasError('Email', 'required')">Email is required</mat-error>
-              <mat-error *ngIf="hasError('Email', 'email')">Email is Invalid</mat-error>
+              <mat-error *ngIf="hasError('Email','required')">Email is required</mat-error>
+              <mat-error *ngIf="hasError('Email','email')">Email is invalid</mat-error>
             </mat-form-field>
             <!-- password field -->
+            
             <mat-form-field appearance="outline">
-              <mat-label>Password</mat-label>
-              <input matInput placeholder="Password" formControlName="Password">
-              <mat-error *ngIf="hasError('Password', 'required')">Password is required</mat-error>
 
-            </mat-form-field>
+              <mat-label>Password*</mat-label>
+              <input matInput placeholder="Password" #Password formControlName="Password" [type]="toggleVisbility.type">
+              <mat-pass-toggle-visibility #toggleVisbility matSuffix></mat-pass-toggle-visibility>
+              <mat-hint align="end" aria-live="polite" >
+                {{Password.value.length}} / 25
+              </mat-hint>
+              <mat-error *ngIf="hasError('Password','required')"> Required !</mat-error>
+              <mat-error *ngIf="hasError('Password','hasNumber')">Must have at least 1 number !</mat-error>
+              <mat-error *ngIf="hasError('Password','hasCapitalCase')">Must have one capital letter !</mat-error>
+              <mat-error *ngIf="hasError('Password','hasSmallCase')">Must have one Small case letter</mat-error>
+              <mat-error *ngIf="hasError('Password','minLength')">must be atleast 8 characters</mat-error>
+              <mat-error *ngIf="hasError('Password','maxLength')">must be atmost 25 characters</mat-error>
+              </mat-form-field>
+              <!-- <br> -->
+              <div *ngIf = "SignUpForm.controls.Password.invalid && SignUpForm.controls.Password.dirty && SignUpForm.controls.Password.touched" fxLayout="row" fxFlexOffset="5"></div>
+
+              <!-- add progress bar -->
+              <mat-password-strength #passwordComponentWithValidation
+                                  (onStrengthChanged)="onStrengthChanged($event)"
+                                  [password]="Password.value">
+              </mat-password-strength>
+  <!-- strength info -->
+  <div fxLayout="row" fxFlexOffset="5"></div>
+
+  <mat-form-field appearance="outline">
+    <mat-label>ConfirmPassword*</mat-label>
+    <input matInput placeholder="Confirm Password" #ConfirmPassword formControlName="ConfirmPassword" [type]="toggleVisbility.type"  (keyup)="ConfirmPassword()" >
+    <mat-pass-toggle-visibility #toggleVisbility matSuffix></mat-pass-toggle-visibility>
+    <mat-hint align="end" aria-live="polite" >
+      {{ConfirmPassword.value.length}} / 25
+    </mat-hint>
+ </mat-form-field> 
+  
             <!-- submit button -->
-            <button mat-raised-button [ngStyle]="{'background-color':'#fe4987'}" type="submit">Login</button>
-
+            <button mat-raised-button type="submit" [ngStyle]="{'background-color':'#fe4987'}">SIGNUP</button>
           </form>
           <div div fxLayout="column" fxFlexLayout="15"></div>
-
+       
         </mat-card>
 
       </div>
